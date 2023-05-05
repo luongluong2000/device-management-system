@@ -1,4 +1,6 @@
 class DeviceHistoriesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_device, only: %i(new create)
 
   def new

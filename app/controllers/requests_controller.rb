@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_request, only: %i(show edit update)
   before_action :devices_by_office, only: %i(new create edit update)
 

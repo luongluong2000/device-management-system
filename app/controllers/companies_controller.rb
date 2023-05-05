@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_company, only: %i(show edit update)
+  before_action :check_current_company, only: :index
 
   def index
     @query = Company.ransack params[:query]
@@ -47,5 +50,11 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit Company::ATTR_PARAMS
+  end
+
+  def check_current_company
+    return if current_user.role_system_admin?
+
+    redirect_to company_path(current_user.office.company)
   end
 end

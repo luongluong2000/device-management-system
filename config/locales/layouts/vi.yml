@@ -10,6 +10,14 @@ vi:
           my_devices: "Thiết bị của tôi"
           requests: "Yêu cầu của tôi"
           devices: "Thiết bị"
+        system_admin_tab:
+          companies: "Công ty"
+          offices: "Văn phòng"
+          devices: "Thiết bị"
+        manager_tab:
+          companies: "Công ty"
+          offices: "Văn phòng"
+          devices: "Thiết bị"
       top:
         topbar:
           logout: "Đăng xuất"

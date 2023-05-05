@@ -10,6 +10,14 @@ en:
           my_devices: "My devices"
           requests: "Requests"
           devices: "Devices"
+        system_admin_tab:
+          devices: "Devices"
+          companies: "Companies"
+          offices: "Offices"
+        manager_tab:
+          devices: "Devices"
+          companies: "Companies"
+          offices: "Offices"
       top:
         topbar:
           logout: "Log Out"

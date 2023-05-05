@@ -1,4 +1,6 @@
 class UserDevicesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_device, :users_except_using, only: %i(new create)
 
   def index

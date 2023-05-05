@@ -1,4 +1,6 @@
 class DevicesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_device, only: %i(show new_sub_devices add_sub_devices)
   before_action :check_device_ids_present, only: :add_sub_devices
   before_action :check_import_file_present, only: :import

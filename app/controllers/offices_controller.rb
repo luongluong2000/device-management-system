@@ -1,7 +1,10 @@
 class OfficesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_company
   before_action :set_office, only: %i(show edit update add_users new_users)
   before_action :check_user_ids_present, only: :add_users
+  before_action :check_current_company_office, only: :index
 
   def index
     @query = @company.offices.ransack params[:query]
@@ -80,5 +83,11 @@ class OfficesController < ApplicationController
 
     flash[:notice] = t "shared.processing_failed"
     redirect_to new_users_company_office_path(company_id: @company.id, id: @office.id)
+  end
+
+  def check_current_company_office
+    return if current_user.office.company_id == params[:company_id].to_i || current_user.role_system_admin?
+
+    redirect_to root_path, alert: t("shared.company_does_not_exist")
   end
 end
