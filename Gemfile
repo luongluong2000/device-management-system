@@ -105,6 +105,10 @@ group :development, :test do
 
   # https://github.com/rubocop/rubocop-rails
   gem "rubocop-rails", require: false
+
+  gem "factory_bot_rails"
+  gem "rails-controller-testing"
+  gem "rspec-rails"
 end
 
 group :development do
